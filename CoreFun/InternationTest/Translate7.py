@@ -40,7 +40,7 @@ class InterReplace:
     def ReadExcel(self):
 
         openfile = openpyxl.load_workbook(filename=self.InterationExcelFile, data_only=True)
-        getSheetName = openfile.get_sheet_by_name("String")
+        getSheetName = openfile.get_sheet_by_name("Sheet1")
 
         excelChineseList = []
         excel_chinese_key_List = []
@@ -62,7 +62,7 @@ class InterReplace:
         # print(excel_chinese_key_List)
 
         # 获取excel表中的国际化语言
-        excelTransKeyfuhao = ["。", ":", "：", ".", ";"]
+        excelTransKeyfuhao = ["。", ":", "：", ".", ";", "】", "【"]
         excel_Translation_key = []
         for excel_translate in list(getSheetName.columns)[self.excelColoum]:
             excel_value = excel_translate.value
